@@ -5,6 +5,10 @@ build:
     build:
       - dotnet publish -c Release -o out
 run:
-  command: dotnet out/docker-api.dll
+  command: dotnet out/HelloWorldDotNetApp.dll
   network:
-    port: 80
+    port: 5000
+    env: APP_PORT
+  env:
+    - name: ASPNETCORE_URLS
+      value: "https://*:5000"
