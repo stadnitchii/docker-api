@@ -9,7 +9,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.MapGet("/", () => "hello rev 5");
+app.MapGet("/", () => "hello rev 6 - should auto-deploy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
