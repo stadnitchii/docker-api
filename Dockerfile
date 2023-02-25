@@ -11,6 +11,6 @@ RUN dotnet publish -c Release -o out
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /App
-EXPOSE 8080
+EXPOSE 80
 COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "docker-api.dll"]
