@@ -9,9 +9,10 @@ RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
-EXPOSE 8080
-ARG ASPNETCORE_URLS = http://*:8080
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /App
+
+ENV ASPNETCORE_URLS = http://*:8080
+EXPOSE 8080
 COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "docker-api.dll"]
