@@ -10,6 +10,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 app.MapGet("/", () => "hello rev 15");
+app.MapGet("/api/v1", () => "hello from api v1");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
