@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://nitchiiapi.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_1d69326a178b4a58980f7ec38de9a9d8 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_ea12c9b7bdd24635afe8df522005bd0e }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_8edcb57eb1ea46efaf6bdb07b8e78f2e }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_4d2c808648b54b2580d9ae9c8d7e3ab0 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: nitchiiapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1d69326a178b4a58980f7ec38de9a9d8 }}/nitchii-api:${{ github.sha }}
+        tags: nitchiiapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8edcb57eb1ea46efaf6bdb07b8e78f2e }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'nitchii-test-api'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f4a0c682eb4a4129abfdd1340ff7cb4b }}
-        images: 'nitchiiapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1d69326a178b4a58980f7ec38de9a9d8 }}/nitchii-api:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_650240ea524c4adc9b7007c0c2fc323d }}
+        images: 'nitchiiapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_8edcb57eb1ea46efaf6bdb07b8e78f2e }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}'
