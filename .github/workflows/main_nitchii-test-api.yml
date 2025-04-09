@@ -48,4 +48,4 @@ jobs:
         app-name: 'nitchii-test-api'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_f21df1d8637c42fd8eaa9feee58e7bdc }}
-        images: 'nitchiiapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_55366f1332eb40da9347d30a7c6ec7de }}/nitchii-api:${{ github.sha }}'
+        images: 'nitchiiapi.azurecr.io/nitchii-api:${{ github.sha }}'
