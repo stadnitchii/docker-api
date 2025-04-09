@@ -8,3 +8,5 @@ with open(filename) as f:
 
 with open(filename, "w") as f:
     f.write(newText)
+
+print(newText)
