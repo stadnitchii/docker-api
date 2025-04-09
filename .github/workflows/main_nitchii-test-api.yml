@@ -30,22 +30,5 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: nitchiiapi.azurecr.io/nitchii-api:${{ github.sha }}
+        tags: nitchiiapi.azurecr.io/nitchii-api:latest
         file: ./Dockerfile
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'nitchii-test-api'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f21df1d8637c42fd8eaa9feee58e7bdc }}
-        images: 'nitchiiapi.azurecr.io/nitchii-api:${{ github.sha }}'
