@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: nitchiiapi.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_55366f1332eb40da9347d30a7c6ec7de }}/nitchii-api:${{ github.sha }}
+        tags: nitchiiapi.azurecr.io/nitchii-api:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
