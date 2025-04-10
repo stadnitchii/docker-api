@@ -11,6 +11,7 @@ var app = builder.Build();
 
 app.MapGet("/", () => "{commit}");
 app.MapGet("/api/v1", () => "hello from api v1");
+app.MapGet("/api/feature1", () => "hello from api feature1");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
