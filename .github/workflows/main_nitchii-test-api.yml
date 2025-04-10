@@ -32,6 +32,7 @@ jobs:
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
+        context: .
         push: true
         tags: nitchiiapi.azurecr.io/nitchii-api:latest
         file: ./Dockerfile
